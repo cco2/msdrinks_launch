@@ -1,0 +1,10 @@
+<launch>
+	<node name="object_detector" pkg="object_detector" type="object_detector.py" respawn="true" />
+	<node name="msdrinks_advanced_planner" pkg="msdrinks_planner" type="msdrinks_advanced_planner.py" respawn="true" />
+	<node name="msdrinks_planner_cli" pkg="msdrinks_planner" type="msdrinks_planner_cli.py" respawn="true" />
+	<group ns="od">
+		<node name="image_view" pkg="image_view" type="image_view" respawn="true">
+			<remap from="image" to="/detected_objects/overlay_img" />
+		</node>
+	</group>
+</launch>
